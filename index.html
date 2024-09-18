@@ -9,6 +9,9 @@
 </head>
 <body>
     <div class="container mt-5">
+        <div id="notification-area" class="alert alert-warning d-none" role="alert">
+            <!-- Notifications will be displayed here -->
+        </div>
         <h1 class="text-center mb-4">Welcome to HiyaKaya Train Ticket Booking</h1>
         <div class="row">
             <div class="col-md-6 offset-md-3">
@@ -50,9 +53,14 @@
             const messageArea = document.getElementById('message-area');
             
             if (userExists) {
-                messageArea.textContent = `Welcome back, ${username}!`;
+                messageArea.textContent = `Welcome back, ${username}! Redirecting to booking page...`;
                 messageArea.classList.remove('d-none', 'alert-info');
                 messageArea.classList.add('alert-success');
+                
+                // Redirect to booking page after a short delay
+                setTimeout(() => {
+                    window.location.href = 'booking.html';
+                }, 2000);
             } else {
                 messageArea.textContent = `User ${username} not found. Please register.`;
                 messageArea.classList.remove('d-none', 'alert-info');
@@ -61,7 +69,45 @@
             
             messageArea.classList.remove('d-none');
         });
+
+        function checkTrainStatus() {
+            // Simulating an API call to get train status
+            const delays = [
+                { train: "Express 101", delay: "20 minutes" },
+                { train: "Local 202", delay: "10 minutes" }
+            ];
+            const maintenance = [
+                { train: "Rapid 303", maintenance: "Track maintenance, service suspended" }
+            ];
+
+            let message = "";
+            if (delays.length > 0) {
+                message += "Delays: ";
+                delays.forEach(delay => {
+                    message += `${delay.train} - ${delay.delay}. `;
+                });
+            }
+            if (maintenance.length > 0) {
+                message += "Maintenance: ";
+                maintenance.forEach(item => {
+                    message += `${item.train} - ${item.maintenance}. `;
+                });
+            }
+
+            const notificationArea = document.getElementById('notification-area');
+            if (message) {
+                notificationArea.textContent = message;
+                notificationArea.classList.remove('d-none');
+            } else {
+                notificationArea.classList.add('d-none');
+            }
+        }
+
+        // Check train status when the page loads
+        window.onload = checkTrainStatus;
+
+        // Check train status every 5 minutes
+        setInterval(checkTrainStatus, 300000);
     </script>
 </body>
 </html>
-
