@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const getStartedBtn = document.getElementById('get-started-btn');
     if (getStartedBtn) {
         getStartedBtn.addEventListener('click', function() {
-            window.location.href = 'C:/Users/user/Desktop/New folder/home.html';
+            window.location.href = 'home.html';
         });
     }
 });
