@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const getStartedBtn = document.getElementById('get-started-btn');
     if (getStartedBtn) {
         getStartedBtn.addEventListener('click', function() {
-            window.location.href = 'home.html';
+            window.location.href = 'https://github.com/Sesh-Gallagher/hiyakaya_app/blob/3d33ed0970d5ab095810db52ac0c41d25f51cdda/home.html';
         });
     }
 });
