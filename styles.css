@@ -82,7 +82,7 @@ h1 {
             100% { transform: translateX(-100%); }
         }
         .welcome-section {
-            background-image: url('https://github.com/Sesh-Gallagher/hiyakaya_app/blob/b137b1688a3d56c1f46ee24fca1a6ef8a3ba073f/train_image.jpg');
+            background-image: url('train_image.jpg');
             background-size: cover;
             background-position: center;
             text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
